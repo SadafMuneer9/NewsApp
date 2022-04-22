@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="textview">TextView</string>
+    <string name="heading">Heading</string>
+    <string name="sadaf_MMuneer">Sadaf Muneer</string>
+    <string name="author">author</string>
+    <string name="sadaf_muneer">Sadaf Muneer</string>
+</resources>

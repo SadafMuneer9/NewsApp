@@ -20,11 +20,11 @@ class MainActivity: AppCompatActivity(),onItemClicked {
     }
 
     private fun getItemList(): ArrayList<Articles> {
-        val newsList = Gson().fromJson(api, News::class.java)
+        val newsList = Gson().fromJson(news_api, News::class.java)
         return newsList.articles
     }
 
-    private fun showNews(news: ArrayList<Articles>) {
+    private fun showNews(news: Articles) {
         val articleJson = Gson().toJson(news)
         val intent = Intent(this, Description::class.java)
         intent.putExtra("newsJson", articleJson)
@@ -32,7 +32,7 @@ class MainActivity: AppCompatActivity(),onItemClicked {
     }
 
      override fun onItemClicked(item: Articles) {
-        showNews(news)
+        showNews(item)
     }
 }
 

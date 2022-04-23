@@ -10,14 +10,11 @@ import com.bumptech.glide.Glide
 
 class NewsListAdapter(
     private val news: ArrayList<Articles>,
-    private val listener: MainActivity
+    private val listener: onItemClicked
 ) : RecyclerView.Adapter<NewsListAdapter.NewsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false)
         val viewHolder = NewsViewHolder(view)
-        view.setOnClickListener {
-            listener.onItemClicked(news[viewHolder.adapterPosition])
-        }
         return NewsViewHolder(view)
     }
 
@@ -29,6 +26,10 @@ class NewsListAdapter(
         val currentItem = news[position]
         holder.titleView.text = currentItem.title
         Glide.with(holder.itemView).load(currentItem.urlToImage).into(holder.imageView)
+
+        holder.itemView.setOnClickListener {
+            listener.onItemClicked(currentItem)
+        }
     }
 
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -38,6 +39,5 @@ class NewsListAdapter(
 
 }
 interface onItemClicked {
-    val news: ArrayList<Articles>
     fun onItemClicked(item: Articles)
 }

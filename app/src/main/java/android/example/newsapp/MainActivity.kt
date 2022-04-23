@@ -24,6 +24,7 @@ class MainActivity: AppCompatActivity(),onItemClicked {
         return newsList.articles
     }
 
+    //App is crashing on item click. Check for the crash logs and find a resolution
     private fun showNews(news: Articles) {
         val articleJson = Gson().toJson(news)
         val intent = Intent(this, Description::class.java)
